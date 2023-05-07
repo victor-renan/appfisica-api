@@ -9,7 +9,13 @@ export class DatabaseProvider implements TypeOrmOptionsFactory {
     return {
       type: "mongodb",
       url: this.config.get<string>("MONGO_URL"),
-      migrations: ["dist/**/migrations/"]
+      database: this.config.get<string>("MONGO_DB"),
+      entities: [
+        'dist/**/*.entity.{js, ts}'
+      ],
+      ssl: true,
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
     }
   }
 }
