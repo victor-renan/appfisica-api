@@ -1,5 +1,4 @@
 import { IsNotEmpty, IsOptional } from "class-validator";
-import { ObjectId } from "mongodb";
 
 export class CreateJogoDto {
   @IsNotEmpty()
@@ -7,6 +6,9 @@ export class CreateJogoDto {
 
   @IsNotEmpty()
   materia: string;
+
+  @IsNotEmpty()
+  name: string;
 }
 
 
@@ -18,4 +20,8 @@ export class UpdateJogoDto {
   @IsOptional()
   @IsNotEmpty()
   materia: string;
+
+  @IsNotEmpty()
+  @IsOptional()
+  name: string;
 }

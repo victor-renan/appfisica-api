@@ -11,4 +11,7 @@ export class Jogo {
 
   @Column()
   materia: string;
+
+  @Column()
+  name: string;
 }
