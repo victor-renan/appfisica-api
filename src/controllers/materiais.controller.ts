@@ -22,8 +22,8 @@ export class MateriaisController {
   }
 
   @Post('create/')
-  async createMaterial(@Body() user: CreateMaterialDto): Promise<Material> {
-    return await this.materiaisService.createMaterial(user);
+  async createMaterial(@Body() material: CreateMaterialDto): Promise<Material> {
+    return await this.materiaisService.createMaterial(material);
   }
 
   @Post('update/:id')

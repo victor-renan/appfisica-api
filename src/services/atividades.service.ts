@@ -40,10 +40,10 @@ export class AtividadesService {
     );
     const { materia, ...partial } = atividade;
 
-    const findMateria = await this.materiasRepository.findOneBy({ _id: new ObjectId(materia) })
+    const findMateria = await this.materiasRepository.findOneBy({ name: materia })
 
     if (!findMateria) throw new NotFoundException(
-      `Matéria de ID: ${materia} não existe!`
+      `Matéria de Nome: ${materia} não existe!`
     );
     const newAtividade = this.atividadesRepository.create({ ...partial, materia })
 
@@ -58,10 +58,10 @@ export class AtividadesService {
     );
     const { materia, ...partial } = update;
 
-    const findMateria = await this.materiasRepository.findOneBy({ _id: new ObjectId(materia) });
+    const findMateria = await this.materiasRepository.findOneBy({ name: materia });
 
     if (!findMateria) throw new NotFoundException(
-      `Matéria de ID: ${materia} não existe!`
+      `Matéria de Nome: ${materia} não existe!`
     );
     await this.atividadesRepository.update(
       { _id: new ObjectId(id) }, { ...partial, materia }

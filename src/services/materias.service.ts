@@ -30,6 +30,15 @@ export class MateriasService {
     return materia;
   }
 
+  async getMateriaByName(name: string): Promise<Materia> {
+    this.logger.log(`Get the materia with Name ${name}`);
+    const materia = await this.materiasRepository.findOneBy({ name: name });
+    if (!materia) throw new NotFoundException(
+      `Materia com Nome: ${name} não existe!`
+    );
+    return materia;
+  }
+
   async createMateria(materia: CreateMateriaDto): Promise<Materia> {
     this.logger.log("Creates a materia")
     const nameExists = await this.materiasRepository.findOneBy(

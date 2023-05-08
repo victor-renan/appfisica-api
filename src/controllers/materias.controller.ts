@@ -21,9 +21,14 @@ export class MateriasController {
     return await this.materiasService.getMateriaById(id);
   }
 
+  @Get('byname/:name')
+  async getByName(@Param('name') name: string): Promise<Materia> {
+    return await this.materiasService.getMateriaByName(name);
+  }
+
   @Post('create/')
-  async createMateria(@Body() user: CreateMateriaDto): Promise<Materia> {
-    return await this.materiasService.createMateria(user);
+  async createMateria(@Body() materia: CreateMateriaDto): Promise<Materia> {
+    return await this.materiasService.createMateria(materia);
   }
 
   @Post('update/:id')

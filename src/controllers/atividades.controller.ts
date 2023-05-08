@@ -22,8 +22,8 @@ export class AtividadesController {
   }
 
   @Post('create/')
-  async createAtividade(@Body() user: CreateAtividadeDto): Promise<Atividade> {
-    return await this.atividadesService.createAtividade(user);
+  async createAtividade(@Body() atividade: CreateAtividadeDto): Promise<Atividade> {
+    return await this.atividadesService.createAtividade(atividade);
   }
 
   @Post('update/:id')
