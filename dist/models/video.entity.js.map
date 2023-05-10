@@ -1,0 +1,1 @@
+{"version":3,"file":"video.entity.js","sourceRoot":"","sources":["../../src/models/video.entity.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qCAAyD;AACzD,qCAAmC;AAG5B,IAAM,KAAK,GAAX,MAAM,KAAK;CASjB,CAAA;AARC;IAAC,IAAA,wBAAc,GAAE;8BACZ,kBAAQ;kCAAC;AAEd;IAAC,IAAA,gBAAM,GAAE;;sCACO;AAEhB;IAAC,IAAA,gBAAM,GAAE;;sCACO;AARL,KAAK;IADjB,IAAA,gBAAM,GAAE;GACI,KAAK,CASjB;AATY,sBAAK"}
