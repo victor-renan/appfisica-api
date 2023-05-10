@@ -7,6 +7,7 @@ import { AtividadesModule } from './atividades.module';
 import { MateriaisModule } from './materiais.module';
 import { JogosModule } from './jogos.module';
 import { VideosModule } from './videos.module';
+import { DestaquesModule } from './destaques.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { VideosModule } from './videos.module';
     MateriaisModule,
     VideosModule,
     JogosModule,
+    DestaquesModule,
   ],
 })
 export class AppModule { }
