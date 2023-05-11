@@ -3,7 +3,7 @@ import { MongoRepository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "models/usuario.entity";
 import { Logger } from "@nestjs/common"
-import { CreateUserDto, UpdateUserDto } from "dto/users.dto";
+import { CreateUserDto, LoginUserDto, UpdateUserDto } from "dto/users.dto";
 import { ObjectId } from "mongodb";
 
 @Injectable()
@@ -66,6 +66,17 @@ export class UsersService {
     );
     await this.usersRepository.delete({ _id: new ObjectId(id) });
 
+    return user;
+  }
+
+  async login(userDto: LoginUserDto) {
+    this.logger.log(`Login user with values {${userDto.username}, ${userDto.password}}`);
+    const user = this.usersRepository.findOne({
+      where: {username: userDto.username, password: userDto.password}
+    });
+    if (!user) throw new NotFoundException(
+      `usuário de username: ${userDto.username}, e password: ${userDto.password} não encontrado`
+    );
     return user;
   }
  }

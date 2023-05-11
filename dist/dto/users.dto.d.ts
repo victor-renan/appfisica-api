@@ -8,3 +8,7 @@ export declare class UpdateUserDto {
     name: string;
     password: string;
 }
+export declare class LoginUserDto {
+    username: string;
+    password: string;
+}

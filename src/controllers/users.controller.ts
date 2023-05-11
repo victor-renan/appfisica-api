@@ -1,6 +1,6 @@
 import { Body, Get, InternalServerErrorException, Param, Post } from "@nestjs/common";
 import { Controller } from "@nestjs/common";
-import { CreateUserDto, UpdateUserDto } from "dto/users.dto";
+import { CreateUserDto, LoginUserDto, UpdateUserDto } from "dto/users.dto";
 import { IdException } from "exceptions/id.exception";
 import { User } from "models/usuario.entity";
 import { UsersService } from "services/users.service";
@@ -37,4 +37,10 @@ export class UsersController {
     if (id.length < 12) throw new IdException();
     return await this.userService.deleteUser(id);
   }
+
+  @Post('login')
+  async loginUser(@Body() user: LoginUserDto) {
+    return await this.userService.login(user);
+  }
+
 }

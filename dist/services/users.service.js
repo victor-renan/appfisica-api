@@ -61,6 +61,15 @@ let UsersService = UsersService_1 = class UsersService {
         await this.usersRepository.delete({ _id: new mongodb_1.ObjectId(id) });
         return user;
     }
+    async login(userDto) {
+        this.logger.log(`Login user with values {${userDto.username}, ${userDto.password}}`);
+        const user = this.usersRepository.findOne({
+            where: { username: userDto.username, password: userDto.password }
+        });
+        if (!user)
+            throw new common_1.NotFoundException(`usuário de username: ${userDto.username}, e password: ${userDto.password} não encontrado`);
+        return user;
+    }
 };
 UsersService = UsersService_1 = __decorate([
     (0, common_1.Injectable)(),

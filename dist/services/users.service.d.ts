@@ -1,6 +1,6 @@
 import { MongoRepository } from "typeorm";
 import { User } from "models/usuario.entity";
-import { CreateUserDto, UpdateUserDto } from "dto/users.dto";
+import { CreateUserDto, LoginUserDto, UpdateUserDto } from "dto/users.dto";
 export declare class UsersService {
     private usersRepository;
     constructor(usersRepository: MongoRepository<User>);
@@ -10,4 +10,5 @@ export declare class UsersService {
     createUser(user: CreateUserDto): Promise<User>;
     updateUser(id: string, update: UpdateUserDto): Promise<User>;
     deleteUser(id: string): Promise<User>;
+    login(userDto: LoginUserDto): Promise<User>;
 }

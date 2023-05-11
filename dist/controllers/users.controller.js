@@ -43,6 +43,9 @@ let UsersController = class UsersController {
             throw new id_exception_1.IdException();
         return await this.userService.deleteUser(id);
     }
+    async loginUser(user) {
+        return await this.userService.login(user);
+    }
 };
 __decorate([
     (0, common_1.Get)('find/'),
@@ -79,6 +82,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "deleteUser", null);
+__decorate([
+    (0, common_1.Post)('login'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [users_dto_1.LoginUserDto]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "loginUser", null);
 UsersController = __decorate([
     (0, common_2.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
